@@ -1,0 +1,82 @@
+<p-toast></p-toast>
+<p-confirmdialog></p-confirmdialog>
+
+@if (hayGateway && dataSource.length === 0) {
+  <div class="estado-vacio">
+    <i class="pi pi-info-circle"></i>
+    <span>Este gateway aún no tiene nodos creados.</span>
+  </div>
+}
+
+
+<div class="grid">
+  @for (item of dataSource; track item.id_nodo) {
+   <div class="gateway-card">
+      <div class="card-header">
+        <h3>{{ item.nombre_nodo }}</h3>
+
+        <span
+          class="estado"
+          [class.activo]="item.estado"
+          [class.inactivo]="!item.estado">
+          <i class="pi pi-circle-fill"></i>
+          {{ item.estado ? 'ACTIVO' : 'INACTIVO' }}
+        </span>
+      </div>
+
+      <div class="campo">
+        <div class="etiqueta">IDENTIFICADOR</div>
+
+        <div class="valor-identificador">
+          {{ item.uuid_nodo }}
+        </div>
+      </div>
+
+      <div class="campo">
+        <div class="etiqueta">DIRECCIÓN MAC</div>
+        <div>{{ item.mac_address || 'Sin registrar' }}</div>
+      </div>
+
+      <div class="campo">
+        <div class="etiqueta">UBICACIÓN</div>
+        <div>{{ item.ubicacion || 'Sin registrar' }}</div>
+      </div>
+
+      <div class="campo fecha-campo">
+        <i class="pi pi-calendar"></i>
+
+        <div>
+          <div class="etiqueta">FECHA DE INSTALACIÓN</div>
+          <div class="fecha">{{ item.fecha_asociacion | date:'yyyy-MM-dd' }}</div>
+        </div>
+      </div>
+
+      <div class="acciones">
+        <p-button
+          icon="pi pi-pencil"
+          styleClass="btn-icono btn-editar"
+          (onClick)="editar(item)">
+        </p-button>
+
+        <p-button
+          icon="pi pi-trash"
+          styleClass="btn-icono btn-eliminar"
+          (onClick)="eliminar(item)">
+        </p-button>
+
+        <p-button
+          label="Detalles"
+          icon="pi pi-chart-bar"
+          styleClass="btn-detalles"
+          (onClick)="abrirGrafico(item)">
+        </p-button>
+      </div>
+    </div>
+  }
+</div>
+
+<app-detalle-nodo
+  [(visible)]="mostrarDetalle"
+  [nodo]="nodoSeleccionado">
+</app-detalle-nodo>
+

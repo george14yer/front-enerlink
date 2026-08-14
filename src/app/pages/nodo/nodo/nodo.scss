@@ -1,0 +1,5 @@
+.gateway-resumen { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1rem; padding: 1rem 1.25rem; border: 1px solid var(--surface-border); border-radius: 12px; background: var(--surface-card); }
+.gateway-resumen > div { display: flex; flex-direction: column; gap: .25rem; min-width: 12rem; }
+.gateway-resumen span { color: var(--text-color-secondary); font-size: .85rem; }
+.gateway-resumen strong { color: var(--primary-color); font-size: 1.35rem; }
+.gateway-resumen > i { color: var(--primary-color); }

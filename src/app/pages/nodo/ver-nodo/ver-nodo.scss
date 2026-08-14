@@ -1,0 +1,193 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+.gateway-card {
+  min-height: 230px;
+  padding: 1.7rem;
+  border: 1px solid #adc8bc;
+  border-radius: 14px;
+  background: var(--surface-card);
+  color: var(--text-color);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.4rem;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.estado {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.estado i {
+  font-size: 0.55rem;
+}
+
+.estado.activo {
+  color: #007e59;
+  border-color: #00b984;
+}
+
+.estado.inactivo {
+  color: #d63030;
+  border-color: #e85b5b;
+}
+
+.campo {
+  margin-bottom: 1.1rem;
+}
+
+.etiqueta {
+  color: var(--text-color-secondary);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.02rem;
+}
+
+.valor-identificador {
+  margin-top: 0.5rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--surface-border);
+  border-radius: 5px;
+  background: var(--surface-ground);
+  color: #00a86f;
+  font-size: 1.15rem;
+  overflow-wrap: anywhere;
+}
+
+.fecha-campo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.fecha-campo > i {
+  color: #617d7c;
+  font-size: 1.1rem;
+}
+
+.fecha {
+  font-size: 1.1rem;
+}
+
+.acciones {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: auto;
+}
+
+
+:host ::ng-deep .btn-icono.p-button,
+:host ::ng-deep .btn-detalles.p-button {
+  height: 2.8rem;
+}
+
+:host ::ng-deep .btn-icono.p-button {
+  width: 2.8rem;
+  padding: 0;
+  border-radius: 50%;
+}
+
+:host ::ng-deep .btn-icono.p-button {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  background: transparent;
+}
+
+:host ::ng-deep .btn-editar.p-button {
+  color: #007e59;
+  border-color: #007e59;
+}
+
+:host ::ng-deep .btn-eliminar.p-button {
+  color: #e33535;
+  border-color: #e33535;
+  
+}
+
+:host ::ng-deep .btn-detalles.p-button {
+  border: 0;
+  border-radius: 999px;
+  background: #007e59;
+  padding-inline: 1.2rem;
+}
+
+
+
+
+
+
+
+@media (max-width: 1000px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gateway-card {
+    min-height: 280px;
+    padding: 1.25rem;
+  }
+
+  .card-header h3 {
+    font-size: 1.3rem;
+  }
+
+  .valor-identificador {
+    font-size: 1rem;
+  }
+}
+
+:host ::ng-deep .btn-icono.p-button,
+:host ::ng-deep .btn-detalles.p-button {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+:host ::ng-deep .btn-icono.p-button:hover,
+:host ::ng-deep .btn-detalles.p-button:hover {
+  box-shadow: 0 4px 10px rgb(0 0 0 / 0.25);
+  transform: translateY(-2px);
+}
+
+:host ::ng-deep .btn-icono.p-button:active,
+:host ::ng-deep .btn-detalles.p-button:active {
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.2);
+  transform: translateY(0);
+}
+.estado-vacio { display: flex; align-items: center; justify-content: center; gap: .6rem; padding: 2rem 1rem; color: var(--text-color-secondary); border: 1px dashed var(--surface-border); border-radius: 12px; margin-bottom: 1rem; }

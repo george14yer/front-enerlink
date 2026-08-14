@@ -1,0 +1,25 @@
+<p-toolbar styleClass="mb-6">
+    <ng-template pTemplate="start">
+        <div class="flex gap-2">
+            <p-select
+                [options]="viviendas()"
+                optionLabel="nombre"
+                placeholder="Selecciona una vivienda"
+                [filter]="true"
+                filterBy="nombre,direccion"
+                [fluid]="true"
+                (onChange)="seleccionar($event.value)">
+            </p-select>
+
+            
+        </div>
+    </ng-template>
+
+    
+</p-toolbar>
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+<p-toolbar styleClass="mb-6">
+    <ng-template pTemplate="start">
+        <div class="flex gap-2">
+            <p-select
+                [options]="gateways()"
+                optionLabel="nombre_gateway"
+                placeholder="Selecciona un gateway"
+                [filter]="true"
+                filterBy="nombre_gateway"
+                [fluid]="true"
+                (onChange)="seleccionar($event.value)">
+            </p-select>
+
+            
+        </div>
+    </ng-template>
+
+    
+</p-toolbar>

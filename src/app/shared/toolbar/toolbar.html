@@ -1,0 +1,27 @@
+<p-toolbar styleClass="mb-6">
+    <ng-template pTemplate="start">
+        <div class="flex gap-2">
+            <p-button
+                label="Nuevo"
+                icon="pi pi-plus"
+                severity="secondary"
+                (onClick)="onAction('Nuevo')">
+            </p-button>
+
+            <p-button
+                label="Eliminar"
+                icon="pi pi-trash"
+                severity="secondary"
+                [outlined]="true">
+            </p-button>
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="end">
+        <p-button
+            label="Exportar"
+            icon="pi pi-upload"
+            severity="secondary">
+        </p-button>
+    </ng-template>
+</p-toolbar>

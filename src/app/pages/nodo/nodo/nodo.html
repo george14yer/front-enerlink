@@ -1,0 +1,21 @@
+@if (gatewayseleccionado) {
+  <section class="gateway-resumen">
+    <div>
+      <span>Consumo de hoy · {{ gatewayseleccionado.nombre_gateway }}</span>
+      <strong>{{ consumoDiarioGateway() | number:'1.2-2' }} kWh</strong>
+    </div>
+    <div>
+      <span>Consumo del mes</span>
+      <strong>{{ consumoMensualGateway() | number:'1.2-2' }} kWh</strong>
+    </div>
+    @if (cargandoConsumo()) { <i class="pi pi-spin pi-spinner"></i> }
+  </section>
+}
+
+<app-selecciona-gateway (gatewaySeleccionado)="cargarNodos($event)"></app-selecciona-gateway>
+
+
+<app-ver-nodo
+  [dataSource]="nodo()"
+  [hayGateway]="!!gatewayseleccionado">
+</app-ver-nodo>

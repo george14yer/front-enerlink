@@ -1,0 +1,15 @@
+.titulo { font-size: 1.25rem; font-weight: 700; }
+.subtitulo { color: var(--text-color-secondary); margin-top: .2rem; }
+.cargando { margin-bottom: 1rem; color: var(--text-color-secondary); }
+.resumen { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-bottom: 1.25rem; }
+.resumen-card, .calculadora, .grafica-card { border: 1px solid var(--surface-border); border-radius: 12px; padding: 1rem; background: var(--surface-card); }
+.resumen-card { display: flex; flex-direction: column; gap: .4rem; }
+.resumen-card span, .calculadora p { color: var(--text-color-secondary); }
+.resumen-card strong { font-size: 1.4rem; color: var(--primary-color); }
+.calculadora { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1.25rem; }
+.calculadora h3, .grafica-card h3 { margin: 0 0 .35rem; }
+.calculadora p { margin: 0; }
+.calculadora-form { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; justify-content: flex-end; }
+.calculadora-form strong { min-width: 7rem; color: var(--primary-color); }
+.grafica { height: 20rem; position: relative; }
+@media (max-width: 700px) { .resumen, .calculadora { grid-template-columns: 1fr; display: grid; } .calculadora-form { justify-content: flex-start; } }

@@ -1,0 +1,10 @@
+<p-confirmdialog></p-confirmdialog>
+<p-toast></p-toast>
+<app-table
+    title="Listado de Viviendas"
+    [columns]="columns"
+    [dataSource]="viviendas()"
+    (action)="onAction($event)"
+
+
+></app-table>

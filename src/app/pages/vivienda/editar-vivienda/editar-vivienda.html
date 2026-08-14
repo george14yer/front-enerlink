@@ -1,0 +1,18 @@
+
+<p-dialog
+    
+    [(visible)]="visible"
+    (onHide)="alCerrarModal()"
+    [modal]="true"
+    (visibleChange)="visibleChange.emit($event)"
+    [style]="{ width: '40rem' }"> 
+
+    <!-- Aquí va tu formulario -->
+     <app-formulario-vivienda
+        [vivienda]="vivienda"
+        [isLoading]="isSaving"
+        (guardar)="editar($event)">
+    </app-formulario-vivienda>
+
+
+</p-dialog> 

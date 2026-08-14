@@ -1,0 +1,63 @@
+<form [formGroup]="viviendaForm">
+    <div class="w-full">
+        <div class="card flex flex-col gap-4">
+            <!--<div class="font-semibold text-xl">Creación de Vivienda</div>-->
+            <div class="flex flex-col gap-4">
+                <label for="name1">Nombre</label>
+                <input pInputText  formControlName="nombre" type="text" placeholder="Ej: Residencia El Parque" />
+            </div>
+            <div class="flex flex-col gap-4">
+                <label for="email1">Dirección</label>
+                <input pInputText formControlName="direccion" type="text" placeholder="Ej: Calle, carrera, número, piso, puerta " />
+            </div>
+
+            <div class="flex flex-wrap gap-6">
+                <div class="flex flex-col grow basis-0 gap-2">
+                    <label for="name2">País</label>
+                    <p-select
+                        formControlName="pais"
+                        [options]="paises"
+                        optionLabel="nombre"
+                        placeholder="Seleccionar">
+                    </p-select>
+                
+                </div>
+                <div class="flex flex-col grow basis-0 gap-2">
+                    <label for="email2">Departamento</label>
+                    <p-select
+                        formControlName="departamento"
+                        [options]="departamentos"
+                        optionLabel="nombre"
+                        placeholder="Seleccionar">
+                    </p-select>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap gap-6">
+                <div class="flex flex-col grow basis-0 gap-2">
+                    <label for="name2">Ciudad</label>
+                    <p-select
+                        formControlName="ciudad"
+                        [options]="ciudades"
+                        optionLabel="nombre"
+                        placeholder="Seleccione una ciudad">
+                    </p-select>
+
+                </div>
+
+                <div class="flex flex-col grow basis-0 gap-2">
+                    <label for="email2">Estado</label>
+                    <p-toggleswitch formControlName="estado"   />                   
+                </div>
+            </div>  
+            
+                <p-button
+                    label="Guardar"
+                    type="button"
+                    (onClick)="guardarFormulario()"
+                    [disabled]="viviendaForm.invalid || isLoading">
+                </p-button>
+
+        </div>                     
+    </div>
+</form> 

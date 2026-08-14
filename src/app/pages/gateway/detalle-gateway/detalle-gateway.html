@@ -1,0 +1,52 @@
+<p-dialog
+  [(visible)]="visible"
+  [modal]="true"
+  [maximizable]="true"
+  [style]="{ width: '70rem' }"
+  (onShow)="alAbrir()"
+  (onHide)="alCerrar()">
+
+  <ng-template pTemplate="header">
+    <div>
+      <div class="titulo">Detalle del gateway</div>
+      @if (gateway) {
+        <div class="subtitulo">{{ gateway.nombre_gateway }}</div>
+      }
+    </div>
+  </ng-template>
+
+  <div class="resumen">
+    <div class="resumen-card">
+      <span>Consumo de hoy</span>
+      <strong>{{ consumoDiario | number:'1.2-2' }} kWh</strong>
+    </div>
+    <div class="resumen-card">
+      <span>Consumo del mes</span>
+      <strong>{{ consumoMensual | number:'1.2-2' }} kWh</strong>
+    </div>
+  </div>
+
+  <section class="calculadora">
+    <div>
+      <h3>Calculadora de costo</h3>
+      <p>Ingresa el precio de un kWh para estimar el valor mensual.</p>
+    </div>
+    <div class="calculadora-form">
+      <p-inputNumber
+        [(ngModel)]="valorKwh"
+        mode="currency"
+        currency="COP"
+        locale="es-CO"
+        [minFractionDigits]="0"
+        placeholder="Valor del kWh">
+      </p-inputNumber>
+      <p-button label="Calcular" icon="pi pi-calculator" (onClick)="calcularCosto()"></p-button>
+      <strong>{{ costoEstimado | currency:'COP':'symbol':'1.0-0':'es-CO' }}</strong>
+    </div>
+  </section>
+
+  <section class="grafica-card">
+    <h3>Consumo de la semana actual</h3>
+    <div class="grafica"><canvas #graficaSemanal></canvas></div>
+  </section>
+</p-dialog>

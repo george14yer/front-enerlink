@@ -1,0 +1,71 @@
+<p-toast></p-toast>
+<p-confirmdialog></p-confirmdialog>
+
+@if (hayVivienda && dataSource.length === 0) {
+  <div class="estado-vacio">
+    <i class="pi pi-info-circle"></i>
+    <span>Esta vivienda aún no tiene gateways creados.</span>
+  </div>
+}
+
+<div class="grid">
+  @for (item of dataSource; track item.id_gateway) {
+   <div class="gateway-card">
+      <div class="card-header">
+        <h3>{{ item.nombre_gateway }}</h3>
+
+        <span
+          class="estado"
+          [class.activo]="item.estado"
+          [class.inactivo]="!item.estado">
+          <i class="pi pi-circle-fill"></i>
+          {{ item.estado ? 'ACTIVO' : 'INACTIVO' }}
+        </span>
+      </div>
+
+      <div class="campo">
+        <div class="etiqueta">IDENTIFICADOR</div>
+
+        <div class="valor-identificador">
+          {{ item.uuid_gateway }}
+        </div>
+      </div>
+
+      <div class="campo fecha-campo">
+        <i class="pi pi-calendar"></i>
+
+        <div>
+          <div class="etiqueta">FECHA DE INSTALACIÓN</div>
+          <div class="fecha">{{ item.fecha_instalacion | date:'yyyy-MM-dd' }}</div>
+        </div>
+      </div>
+
+      <div class="acciones">
+        <p-button
+          icon="pi pi-pencil"
+          styleClass="btn-icono btn-editar"
+          (onClick)="editar(item)">
+        </p-button>
+
+        <p-button
+          icon="pi pi-trash"
+          styleClass="btn-icono btn-eliminar"
+          (onClick)="eliminar(item)">
+        </p-button>
+
+        <p-button
+          label="Detalles"
+          icon="pi pi-chart-bar"
+          styleClass="btn-detalles"
+          (onClick)="abrirGrafico(item)">
+        </p-button>
+      </div>
+    </div>
+  }
+</div>
+
+<app-detalle-gateway
+  [(visible)]="mostrarDetalle"
+  [gateway]="gatewaySeleccionado">
+</app-detalle-gateway>
+

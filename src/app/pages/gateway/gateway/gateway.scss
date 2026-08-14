@@ -1,0 +1,5 @@
+.vivienda-resumen { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1rem; padding: 1rem 1.25rem; border: 1px solid var(--surface-border); border-radius: 12px; background: var(--surface-card); }
+.vivienda-resumen > div { display: flex; flex-direction: column; gap: .25rem; min-width: 12rem; }
+.resumen-label { color: var(--text-color-secondary); font-size: .85rem; }
+.vivienda-resumen strong { color: var(--primary-color); font-size: 1.35rem; }
+.vivienda-resumen > i { color: var(--primary-color); }

@@ -1,0 +1,16 @@
+@if (viviendaSeleccionada) {
+  <section class="vivienda-resumen">
+    <div>
+      <span class="resumen-label">Consumo de hoy · {{ viviendaSeleccionada.nombre }}</span>
+      <strong>{{ consumoDiarioVivienda() | number:'1.2-2' }} kWh</strong>
+    </div>
+    <div>
+      <span class="resumen-label">Consumo del mes</span>
+      <strong>{{ consumoMensualVivienda() | number:'1.2-2' }} kWh</strong>
+    </div>
+    @if (cargandoConsumo()) { <i class="pi pi-spin pi-spinner"></i> }
+  </section>
+}
+
+<app-selecciona-vivienda (viviendaSeleccionada)="cargarGateways($event)"></app-selecciona-vivienda>
+<app-ver-gateway [dataSource]="gateways()" [hayVivienda]="!!viviendaSeleccionada"></app-ver-gateway>

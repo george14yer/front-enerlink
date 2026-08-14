@@ -1,0 +1,46 @@
+<p-dialog
+  [(visible)]="visible"
+  [modal]="true"
+  [maximizable]="true"
+  [style]="{ width: '75rem' }"
+  (onShow)="alAbrir()"
+  (onHide)="alCerrar()">
+
+  <ng-template pTemplate="header">
+    <div>
+      <div class="titulo">Consumo del nodo</div>
+      @if (nodo) {
+        <div class="subtitulo">{{ nodo.nombre_nodo }}</div>
+      }
+    </div>
+  </ng-template>
+
+  <div class="resumen">
+    <div class="resumen-card">
+      <span>Consumo de hoy</span>
+      <strong>{{ consumoDiario | number:'1.2-2' }} kWh</strong>
+    </div>
+
+    <div class="resumen-card">
+      <span>Consumo del mes</span>
+      <strong>{{ consumoMensual | number:'1.2-2' }} kWh</strong>
+    </div>
+  </div>
+
+  <div class="graficas">
+    <section class="grafica-card">
+      <h3>Consumo diario</h3>
+      <canvas #graficaDiaria></canvas>
+    </section>
+
+    <section class="grafica-card grafica-semanal">
+      <h3>Consumo semanal</h3>
+      <canvas #graficaSemanal></canvas>
+    </section>
+
+    <section class="grafica-card">
+      <h3>Consumo mensual</h3>
+      <canvas #graficaMensual></canvas>
+    </section>
+  </div>
+</p-dialog>

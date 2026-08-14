@@ -1,11 +1,16 @@
 import { Routes } from '@angular/router';
-import { Documentation } from './documentation/documentation';
+
 import { Crud } from './crud/crud';
-import { Empty } from './empty/empty';
+import { Vivienda } from './vivienda/vivienda/vivienda';
+import { Gateway } from  './gateway/gateway/gateway';
+import { Nodo } from './nodo/nodo/nodo';
 
 export default [
-    { path: 'documentation', component: Documentation },
+    
     { path: 'crud', component: Crud },
-    { path: 'empty', component: Empty },
-    { path: '**', redirectTo: '/notfound' }
+    { path: 'vivienda', component: Vivienda },
+    { path: 'gateway', component: Gateway },
+    { path: 'nodo', component: Nodo }
+
+
 ] as Routes;

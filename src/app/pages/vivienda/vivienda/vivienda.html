@@ -1,0 +1,11 @@
+
+<app-toolbar (action)="onToolbarAction($event)"></app-toolbar>
+
+<app-crear-vivienda  [(visible)]="mostrarModal"></app-crear-vivienda>
+
+<app-editar-vivienda
+  [(visible)]="mostrarEditar"
+  [vivienda]="viviendaSeleccionada">
+</app-editar-vivienda> 
+
+<app-ver-vivienda (editarVivienda)="editar($event)" ></app-ver-vivienda>
