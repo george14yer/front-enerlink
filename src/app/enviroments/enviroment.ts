@@ -4,6 +4,6 @@ export const environment = {
     production: true,
     //apiUrl: 'https://sixtieth-turtle-synopses.ngrok-free.dev'
      //apiUrl: 'https://sixtieth-turtle-synopses.ngrok-free.dev'
-    apiUrl: 'https://enerlink.acoresolutions.com/'
+    apiUrl: 'https://enerlink.acoresolutions.com'
 
 };
